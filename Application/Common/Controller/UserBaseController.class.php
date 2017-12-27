@@ -11,5 +11,17 @@ use Think\Controller;
 
 class UserBaseController extends Controller
 {
+    public function display()
+    {
+        if (array_key_exists('HTTP_X_PJAX', $_SERVER) && $_SERVER['HTTP_X_PJAX']) {
+            //浏览器支持pjax，直接输出模板
+            parent::display();
+        } else {
+            //浏览器不支持pjax，开启模板布局功能，拼接html
+            layout(true);
+            parent::display();
+        }
+    }
+
 
 }
