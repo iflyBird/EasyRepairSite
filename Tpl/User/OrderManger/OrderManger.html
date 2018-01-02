@@ -3,7 +3,7 @@
         <div class="box" style="margin-top: 40px">
             <div class="box-header">
                 <h3 class="box-title" style="text-align: center">
-                    <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户订单管理</font></font>
+                    <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户订单分类管理</font></font>
                 </h3>
             </div>
             <!-- /.box-header -->
@@ -15,7 +15,7 @@
                             <span class="info-box-icon"><i class="fa fa-bookmark-o"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text"><a href="{:U('HomePage/OrderDetail')}"style="color: white;">订单详情</a></span>
+                                <span class="info-box-text"><a href="{:U('OrderDetail/OrderDetail')}"style="color: white;">订单详情</a></span>
                                 <span class="info-box-number">41,410</span>
 
                                 <div class="progress">
@@ -35,7 +35,7 @@
                             <span class="info-box-icon"><i class="fa fa-thumbs-o-up"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text"><a href="{:U('HomePage/OrderEdit')}"style="color:white;">订单修改</a></span>
+                                <span class="info-box-text"><a href="{:U('OrderEdit/OrderEdit')}"style="color:white;">订单修改</a></span>
                                 <span class="info-box-number">41,410</span>
 
                                 <div class="progress">
@@ -55,7 +55,7 @@
                             <span class="info-box-icon"><i class="fa fa-calendar"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text"><a href="{:U('HomePage/CancelOrder')}" style="color: white;">取消订单</a></span>
+                                <span class="info-box-text"><a href="{:U('CancelOrder/CancelOrder')}" style="color: white;">取消订单</a></span>
                                 <span class="info-box-number">41,410</span>
 
                                 <div class="progress">
@@ -75,7 +75,7 @@
                             <span class="info-box-icon"><i class="fa fa-comments-o"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text"><a href="{:U('HomePage/EnsureOrder')}" style="color: white;">确认订单</a></span>
+                                <span class="info-box-text"><a href="{:U('EnsureOrder/EnsureOrder')}" style="color: white;">确认订单</a></span>
                                 <span class="info-box-number">41,410</span>
 
                                 <div class="progress">
@@ -97,22 +97,32 @@
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th>Qty</th>
-                        <th>Product</th>
-                        <th>Serial #</th>
-                        <th>Description</th>
-                        <th>Subtotal</th>
-                    </tr>
+                        <th>订单Id</th>
+                        <th>订单产品</th>
+                        <th>订单价格</th>
+                        <th>服务状态</th>
+                        <th>下单时间</th>
+                     <!--   <th>订单编号</th>-->
+                       <!-- <th>操作2</th>-->
                     </thead>
                     <tbody>
-                    <tr>
+                    <tr style="color:darkolivegreen">
                         <td>1</td>
-                        <td>Call of Duty</td>
-                        <td>455-981-221</td>
-                        <td>El snort testosterone trophy driving gloves handsome</td>
-                        <td>$64.50</td>
+                        <td>iphone6</td>
+                        <td>4820</td>
+                        <td>正在ing</td>
+                        <td>20180102</td>
+                        <!--<td>331641551515</td>-->
+                     <!--   <td><a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat">
+                            <font style="vertical-align: inherit;"><i
+                                    class="glyphicon glyphicon-pencil"></i>&nbsp;修改</font></a>
+                        </td>
+                        <td><a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat">
+                            <font style="vertical-align: inherit;"><i
+                                    class="glyphicon glyphicon-trash"></i>&nbsp;退单</font></a>
+                        </td>-->
                     </tr>
-                    <tr>
+                   <!-- <tr>
                         <td>2</td>
                         <td>Need for Speed IV</td>
                         <td>247-925-726</td>
@@ -160,13 +170,12 @@
                         <td>422-568-642</td>
                         <td>Tousled lomo letterpress</td>
                         <td>$25.99</td>
-                    </tr>
+                    </tr>-->
                     </tbody>
                 </table>
 
 
 
-                最大的内容区域在这
             </div>
             <!-- /.box-body -->
         </div>

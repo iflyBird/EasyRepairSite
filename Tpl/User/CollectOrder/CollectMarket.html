@@ -1,59 +1,39 @@
-
-<div class="content" style="background: white">
+<div class="content-wrapper">
+    <div class="container">
+<div class="content" >
 <div class="box"style="background: white">
     <div class="box-header with-border">
-        <h3 class="box-title">收藏订单界面</h3>
+        <h3 class="box-title">收藏店铺</h3>
     </div>
     <!-- /.box-header -->
     <div class="box-body">
         <table class="table table-bordered">
-            <tbody><tr>
-                <th style="width: 10px">#</th>
-                <th>Task</th>
-                <th>Progress</th>
-                <th style="width: 40px">Label</th>
-            </tr>
+            <thead>
             <tr>
-                <td>1.</td>
-                <td>Update software</td>
-                <td>
-                    <div class="progress progress-xs">
-                        <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                    </div>
+                <th>店铺Id</th>
+                <th>店铺名称</th>
+                <th>店铺评分</th>
+                <th>店铺销量</th>
+                <th>店铺收藏</th>
+                <!--   <th>订单编号</th>-->
+                <!-- <th>操作2</th>-->
+            </thead>
+            <tbody>
+            <tr style="color:darkolivegreen">
+                <td>1</td>
+                <td>手机维修</td>
+                <td>5星</td>
+                <td>420</td>
+                <td><a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat">
+                    <font style="vertical-align: inherit;"><i
+                            class="glyphicon glyphicon-pencil"></i>&nbsp;收藏</font></a>
                 </td>
-                <td><span class="badge bg-red">55%</span></td>
+
             </tr>
-            <tr>
-                <td>2.</td>
-                <td>Clean database</td>
-                <td>
-                    <div class="progress progress-xs">
-                        <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                    </div>
-                </td>
-                <td><span class="badge bg-yellow">70%</span></td>
-            </tr>
-            <tr>
-                <td>3.</td>
-                <td>Cron job running</td>
-                <td>
-                    <div class="progress progress-xs progress-striped active">
-                        <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                    </div>
-                </td>
-                <td><span class="badge bg-light-blue">30%</span></td>
-            </tr>
-            <tr>
-                <td>4.</td>
-                <td>Fix and squish bugs</td>
-                <td>
-                    <div class="progress progress-xs progress-striped active">
-                        <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                    </div>
-                </td>
-                <td><span class="badge bg-green">90%</span></td>
-            </tr>
-            </tbody></table>
+
+            </tbody>
+
+        </table>
     </div>
     <!-- /.box-body -->
     <div class="box-footer clearfix">
@@ -66,4 +46,6 @@
         </ul>
     </div>
 </div>
+</div>
+    </div>
 </div>
