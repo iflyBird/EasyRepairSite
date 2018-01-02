@@ -1,13 +1,20 @@
-<div class="content"style="background: white;">
+<div class="content-wrapper">
+    <div class="container">
+
+<div class="content" style="background: white;">
 <div class="box-body">
     <!-- Date dd/mm/yyyy -->
-    <div class="form-group">
-        <label>信息修改</label>
+<!--    //信息插入提交-->
+    <form action="{:U('insert')}" method="post" enctype="multipart/form-data">
 
+    <div class="form-group">
+        <label><h2>信息修改</h2></label>
+        <p>用户名:</p>
         <div class="input-group">
             <div class="input-group-addon">
                 <i class="fa fa-calendar"></i>
             </div>
+
             <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
         </div>
         <!-- /.input group -->
@@ -15,6 +22,7 @@
     <!-- /.form group -->
 
     <!-- Date mm/dd/yyyy -->
+    <p>密码:</p>
     <div class="form-group">
         <div class="input-group">
             <div class="input-group-addon">
@@ -27,8 +35,9 @@
     <!-- /.form group -->
 
     <!-- phone mask -->
+    <p>邮箱:</p>
     <div class="form-group">
-        <label>US phone mask:</label>
+    <!--    <label>US phone mask:</label>-->
 
         <div class="input-group">
             <div class="input-group-addon">
@@ -41,8 +50,9 @@
     <!-- /.form group -->
 
     <!-- phone mask -->
+    <p>手机号码:</p>
     <div class="form-group">
-        <label>Intl US phone mask:</label>
+     <!--   <label>Intl US phone mask:</label>-->
 
         <div class="input-group">
             <div class="input-group-addon">
@@ -55,8 +65,9 @@
     <!-- /.form group -->
 
     <!-- IP mask -->
+    <p>性别:</p>
     <div class="form-group">
-        <label>IP mask:</label>
+   <!--     <label>IP mask:</label>-->
 
         <div class="input-group">
             <div class="input-group-addon">
@@ -68,5 +79,36 @@
     </div>
     <!-- /.form group -->
 
+
+
+
+    <p>地址:</p>
+    <div class="form-group">
+      <!--  <label>IP mask:</label>-->
+
+        <div class="input-group">
+            <div class="input-group-addon">
+                <i class="fa fa-laptop"></i>
+            </div>
+            <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask="">
+        </div>
+        <!-- /.input group -->
+    </div>
+
+        <!--  <label>IP mask:</label>-->
+    <p>用户头像：</p>
+        <div class="form-group">
+            <div class="input-group">
+
+            <label for="">IMG</label>
+            <input type="file" name="img" class="form-control" id="" >
+        </div>
+            </div>
+        <!-- /.input group -->
+        </form>
+
+
 </div>
+</div>
+    </div>
 </div>
