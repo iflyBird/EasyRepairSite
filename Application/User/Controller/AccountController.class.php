@@ -3,10 +3,11 @@
 namespace User\Controller;
 
 use Common\Controller;
+use Think\Model;
 
 class AccountController extends Controller\UserBaseController
 {
-    //加载账单界面
+    //加载账号
     public function Account(){
         $this->display();
     }
