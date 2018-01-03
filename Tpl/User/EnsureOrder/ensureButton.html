@@ -1,0 +1,139 @@
+<div class="content-wrapper">
+    <div class="container">
+        <div class="box" style="margin-top: 40px">
+            <div class="box-header">
+                <h3 class="box-title" style="text-align: center">
+                    <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户订单管理</font></font>
+                </h3>
+            </div>
+            <!-- /.box-header -->
+            <!--   内容顶部图标显示-->
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="info-box bg-aqua">
+                            <span class="info-box-icon"><i class="fa fa-bookmark-o"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text"><a href="{:U('OrderDetail/OrderDetail')}"style="color: white;">订单详情</a></span>
+                                <span class="info-box-number">41,410</span>
+
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 70%"></div>
+                                </div>
+                  <span class="progress-description">
+                    70% Increase in 30 Days
+                  </span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="info-box bg-green">
+                            <span class="info-box-icon"><i class="fa fa-thumbs-o-up"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text"><a href="{:U('OrderEdit/OrderEdit')}"style="color:white;">订单修改</a></span>
+                                <span class="info-box-number">41,410</span>
+
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 70%"></div>
+                                </div>
+                  <span class="progress-description">
+                    70% Increase in 30 Days
+                  </span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="info-box bg-yellow">
+                            <span class="info-box-icon"><i class="fa fa-calendar"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text"><a href="{:U('CancelOrder/CancelOrder')}" style="color: white;">取消订单</a></span>
+                                <span class="info-box-number">41,410</span>
+
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 70%"></div>
+                                </div>
+                    <span class="progress-description">
+                    70% Increase in 30 Days
+                  </span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="info-box bg-red">
+                            <span class="info-box-icon"><i class="fa fa-comments-o"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text"><a href="{:U('EnsureOrder/EnsureOrder')}" style="color: white;">确认订单</a></span>
+                                <span class="info-box-number">41,410</span>
+
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 70%"></div>
+                                </div>
+                    <span class="progress-description">
+                    70% Increase in 30 Days
+                    </span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!--     //下方table展示效果-->
+
+
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>订单Id</th>
+                        <th>订单产品</th>
+                        <th>订单评分</th>
+                        <th>订单数</th>
+                        <th>订单详情</th>
+                        <th>订单状态</th>
+                        <th>订单价格</th>
+                        <th>操作</th>
+
+                    </thead>
+                    <tbody>
+                    <volist name="datas" id="data">
+                        <tr style="color:darkolivegreen">
+                            <td>{$data['id']}</td>
+                            <td>{$data['name']}</td>
+                            <td>{$data['score']}</td>
+                            <td>{$data['orders']}</td>
+                            <td>{$data['detail']}</td>
+                            <td>{$data['check']}</td>
+                            <td>{$data['price']}</td>
+                            <td><a href="{:U('EnsureOrder/ensureButton',array('id'=>$data['id']))}" class="btn btn-sm btn-info btn-flat">
+                                <font style="vertical-align: inherit;"><i
+                                        class="glyphicon glyphicon-pencil"></i>&nbsp;确认</font></a>
+                            </td>
+
+                        </tr>
+                    </volist>
+
+                    </tbody>
+                </table>
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
