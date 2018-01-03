@@ -26,13 +26,14 @@ class MessageEditController extends Controller\UserBaseController
         $model = M('users');
        // dump($_POST['username']);
         //create不带数据创建的是空的
-       // $data = $model->create();
+       $data = $model->create();
         $data['id']=$id;
         $data['username']=$_POST['username'];
         $data['password']=md5($_POST['password']);
         $data['phone']=$_POST['phone'];
         $data['sex']=$_POST['sex'];
         $data['address']=$_POST['address'];
+        $data['email']=$_POST['email'];
         if ($data['id']) {
 
             $res = $model->save($data);
