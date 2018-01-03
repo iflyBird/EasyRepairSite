@@ -53,6 +53,7 @@ class PermissionController extends AdminBaseController
     {
         $model = M('auth_rule');
         $data = $model->create();
+       /* var_dump($data);*/
         if ($data['id']) {
             $res = $model->save($data);
         } else {
