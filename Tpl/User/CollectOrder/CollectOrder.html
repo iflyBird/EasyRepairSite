@@ -2,9 +2,10 @@
     <div class="container">
         <div class="box" style="margin-top: 40px">
             <div class="box-header">
-                <h3 class="box-title" style="text-align: center">
+                <h3 class="box-title" style="text-align: center" >
                     <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户订单管理</font></font>
                 </h3>
+               <!-- <button id="collect">ta1</button>-->
             </div>
             <!-- /.box-header -->
             <!--   内容顶部图标显示-->
@@ -15,7 +16,7 @@
                             <span class="info-box-icon"><i class="fa fa-bookmark-o"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text"><a href="{:U('OrderManger/OrderManger')}"style="color: white;">订单详情</a></span>
+                                <span class="info-box-text"><a href="{:U('OrderDetail/OrderDetail')}"style="color: white;">订单详情</a></span>
                                 <span class="info-box-number">41,410</span>
 
                                 <div class="progress">
@@ -98,16 +99,15 @@
                     <thead>
                     <tr>
 
-                        <th>订单编号</th>
-                        <th>商家店铺名</th>
-                        <th>价格</th>
-                        <th>商家电话</th>
-                        <th>维修内容</th>
-                        <th>用户名</th>
-                        <th>用户电话</th>
-                        <th>用户地址</th>
-                        <th>订单状态</th>
-                                <th>操作</th>
+                        <th>店铺Id</th>
+                        <th>店铺名称</th>
+                        <th>店铺评分</th>
+                        <th>店铺销量</th>
+                        <th>店铺简介</th>
+                        <th >店铺状态</th>
+                        <th>收藏状态</th>
+                        <th>订单收藏</th>
+
                     </tr>
 
                     </thead>
@@ -116,39 +116,68 @@
                         <tr style="color:darkolivegreen">
                             <td>{$data['id']}</td>
                             <td>{$data['name']}</td>
-                            <td>{$data['price']}</td>
-                            <td>{$data['businessphone']}</td>
-                            <td>易修</td>
-                            <td>{$data['username']}</td>
-                            <td>{$data['userphone']}</td>
-                            <td>{$data['address']}</td>
+                            <td>{$data['score']}</td>
+                            <td>{$data['orders']}</td>
+                            <td>{$data['detail']}</td>
                             <td>
-
                                 <if condition="$data.status eq 1"><span class="label label-success">已确认</span></if>
                                 <if condition="$data.status eq 0"><span class="label label-warning">待确认</span></if>
-
                             </td>
-                            <td><a href="{:U('EnsureOrder/ensureButton',array('id'=>$data['id']))}" class="btn btn-sm btn-info btn-flat">
-                                <font style="vertical-align: inherit;"><i
-                                        class="glyphicon glyphicon-pencil"></i>&nbsp;确认</font></a>
+                            <td>
+                                <if condition="$data.collect eq 1"><span class="label label-success">已收藏</span></if>
+                                <if condition="$data.collect eq 0"><span class="label label-warning">待收藏</span></if>
                             </td>
-
+                             <td><a  href="{:U('User/CollectOrder/saves',array('id'=>$data['id']))}" class="btn btn-sm btn-info btn-flat">
+                                 <font style="vertical-align: inherit;"><i
+                                         class="glyphicon glyphicon-heart"></i>&nbsp;收藏</font></a>
+                             </td>
 
                         </tr>
+                    </volist>
 
-
-                        </volist>
-
-                     </tr>
                     </tbody>
                 </table>
 
 
 
             </div>
-            <!-- /.box-body -->
+
         </div>
     </div>
-    <!-- /.container -->
+
 </div>
-<!-- /.content-wrapper -->
+
+<script>
+    function save(url) {
+        //alert("dd");
+        //ajax
+        $.ajax({
+            url: url,
+            type: 'post',
+            data: $('form').serializeArray(),
+            dataType: 'json',
+            success: function (response) {
+                // alert(response);
+                layer.msg(response.message, {
+                    icon: response.code,
+                    time: 600
+                }, function () {
+                    if (response.url) {
+                        alert(response);
+                        window.location.href = response.url;
+                    }
+                });
+            }
+        });
+    }
+</script>
+<!--//jquery按钮点击改变样式-->
+<script>
+    $(function(){
+        $('#collect').click(function(){
+            alert("ss");
+        })
+
+    })
+
+</script>

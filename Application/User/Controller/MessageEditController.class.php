@@ -1,16 +1,15 @@
 <?php
-
 namespace User\Controller;
-
 use Common\Controller;
 use Think\Model;
 
 class MessageEditController extends Controller\UserBaseController
 {
-  //¼ÓÔØÏûÏ¢±à¼­½çÃæ
+
+  //åŠ è½½æ¶ˆæ¯ç¼–è¾‘ç•Œé¢
     public function MessageEdit(){
-        //¼ÓÔØÊı¾İ¿âÊı¾İ
-        //»ñÈ¡ÓÃ»§id
+     //åŠ è½½æ•°æ®åº“æ•°æ®
+        //è·å–ç”¨æˆ·id
         $id= $_SESSION['userId'];
         $model=new Model();
         $data=$model->query("select username,password,email,phone,avatar,sex,address from ers_users where id=$id");
@@ -19,32 +18,40 @@ class MessageEditController extends Controller\UserBaseController
         $this->display();
 
     }
-    //¸öÈËĞÅÏ¢ĞŞ¸Ä´¦Àí
+  //ä¸ªäººä¿¡æ¯ä¿®æ”¹
     public function saves()
     {
+
         $id=$_SESSION['userId'];
         $model = M('users');
+       // dump($model);
        // dump($_POST['username']);
-        //create²»´øÊı¾İ´´½¨µÄÊÇ¿ÕµÄ
-       $data = $model->create();
+        //createä¸å¸¦æ•°æ®åˆ›å»ºçš„æ˜¯ç©ºçš„
+        $data = $model->create();
         $data['id']=$id;
         $data['username']=$_POST['username'];
-        $data['password']=md5($_POST['password']);
+        //æš‚æ—¶å¯†ç ä¸éœ€è¦ååŠ å¯†,å¦åˆ™å½±å“ä¸‹æ¬¡ç™»é™†
+        $data['password']=($_POST['password']);
         $data['phone']=$_POST['phone'];
         $data['sex']=$_POST['sex'];
         $data['address']=$_POST['address'];
         $data['email']=$_POST['email'];
         if ($data['id']) {
-
+            // echo "11";
             $res = $model->save($data);
         } else {
             $res = $model->add($data);
         }
         if ($res >= 0) {
-            response(1, '±£´æ³É¹¦£¡', null, U('User/MessageEdit/MessageEdit'));
+              //echo "22";
+
+
+            response(1, 'ä¿å­˜æˆåŠŸï¼/', null, U('User/OrderEdit/OrderEdit'));
+
         } else {
-            response(2, '±£´æÊ§°Ü£¡');
+            response(2, 'ä¿å­˜å¤±è´¥ï¼');
         }
     }
+
 
 }

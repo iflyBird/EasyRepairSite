@@ -3,10 +3,12 @@
 
 <div class="content" >
 <div class="box-body">
-    <!-- Date dd/mm/yyyy -->
+    <!-- Date dd/mm/yyyy --><!--
+    action="{:U('MessageEdit/save',array('id'=>$data[0]['id']))}" method="get" enctype="multipart/form-data"-->
 <!--    //信息插入提交-->
-    <form action="{:U('MessageEdit/insert')}" method="post" enctype="multipart/form-data">
-
+    <form  role="form">
+        <!--//用户Id隐藏-->
+      <input type="hidden" name="id" value="{$data[0].id}">
     <div class="form-group">
         <label><h2>信息修改</h2></label>
         <p>用户名:</p>
@@ -15,7 +17,7 @@
                 <i class="fa fa-calendar"></i>
             </div>
 
-            <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+            <input type="text" name="username" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" value="{$data[0]['username']}">
         </div>
         <!-- /.input group -->
     </div>
@@ -28,7 +30,7 @@
             <div class="input-group-addon">
                 <i class="fa fa-calendar"></i>
             </div>
-            <input type="text" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask="">
+            <input type="password" name="password" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask="" value="{$data[0]['password']}">
         </div>
         <!-- /.input group -->
     </div>
@@ -43,7 +45,7 @@
             <div class="input-group-addon">
                 <i class="fa fa-phone"></i>
             </div>
-            <input type="text" class="form-control" data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;" data-mask="">
+            <input type="email" name="email" class="form-control" data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;" data-mask=""value="{$data[0]['email']}">
         </div>
         <!-- /.input group -->
     </div>
@@ -58,7 +60,7 @@
             <div class="input-group-addon">
                 <i class="fa fa-phone"></i>
             </div>
-            <input type="text" class="form-control" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask="">
+            <input type="text" name="phone" class="form-control" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask="" value="{$data[0]['phone']}" maxlength="11">
         </div>
         <!-- /.input group -->
     </div>
@@ -67,17 +69,13 @@
     <!-- IP mask -->
     <p>性别:</p>
     <div class="form-group">
-   <!--     <label>IP mask:</label>-->
+       男 <input type="radio" name="sex" value="男" >
+        女<input type="radio" name="sex" value="女">
 
-        <div class="input-group">
-            <div class="input-group-addon">
-                <i class="fa fa-laptop"></i>
-            </div>
-            <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask="">
-        </div>
-        <!-- /.input group -->
+
+
     </div>
-    <!-- /.form group -->
+
 
 
 
@@ -90,7 +88,7 @@
             <div class="input-group-addon">
                 <i class="fa fa-laptop"></i>
             </div>
-            <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask="">
+            <input type="text" name="address" class="form-control" data-inputmask="'alias': 'ip'" data-mask=""value="{$data[0]['address']}">
         </div>
         <!-- /.input group -->
     </div>
@@ -101,15 +99,15 @@
             <div class="input-group">
 
             <label for="">IMG</label>
-            <input type="file" name="img" class="form-control" id="" >
+            <input type="file" name="img" class="form-control" id="" value="{$data[0]['avatar']}">
         </div>
             </div>
         <div class="form-group">
+            <a onclick="save('{:U('User/MessageEdit/saves')}')" class="btn btn-success">提交</a>
 
-            <input type="submit" value="提交" class="btn btn-success id="" >
-            <input type="reset" value="重置" class="btn btn-warning id="" >
+
         </div>
-        <!-- /.input group -->
+
         </form>
 
 
@@ -117,3 +115,29 @@
 </div>
     </div>
 </div>
+
+<script>
+    function save(url) {
+
+
+        $.ajax({
+            url: url,
+            type: 'post',
+            data: $('form').serializeArray(),
+            dataType: 'json',
+            success: function (response) {
+                // alert(response);
+                layer.msg(response.message, {
+                    icon: response.code,
+                    time: 600
+                }, function () {
+                    if (response.url) {
+                        // alert(response);
+                        window.location.href = response.url;
+                    }
+                });
+            }
+        });
+    }
+
+</script>
