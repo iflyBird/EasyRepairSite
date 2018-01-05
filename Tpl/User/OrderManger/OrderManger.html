@@ -1,10 +1,23 @@
 <div class="content-wrapper">
-        <div class="container">
+    <div class="container">
         <div class="box" style="margin-top: 40px">
             <div class="box-header">
-                <h3 class="box-title" style="text-align: center">
-                    <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户订单分类管理</font></font>
+                <h3 class="box-title" style="text-align: center"style="float: left">
+
+                    <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户订单管理</font></font>
+
+
                 </h3>
+            <!--    <div class="form-group" style="float: right">-->
+                         <!--   <span style="float: right">
+                            <input type="text" class="form-control" id="navbar-search-input" placeholder="订单查询">
+                                <button  class="btn btn-primary" style="border: none;font-size: 20px;">搜索</button>
+                            </span>-->
+       <!--         </div>-->
+
+
+
+
             </div>
             <!-- /.box-header -->
             <!--   内容顶部图标显示-->
@@ -15,7 +28,7 @@
                             <span class="info-box-icon"><i class="fa fa-bookmark-o"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text"><a href="{:U('OrderDetail/OrderDetail')}"style="color: white;">订单详情</a></span>
+                                <span class="info-box-text"><a href="{:U('OrderManger/OrderManger')}"style="color: white;">订单详情</a></span>
                                 <span class="info-box-number">41,410</span>
 
                                 <div class="progress">
@@ -97,80 +110,46 @@
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th>订单Id</th>
-                        <th>订单产品</th>
-                        <th>订单价格</th>
-                        <th>服务状态</th>
-                        <th>下单时间</th>
-                     <!--   <th>订单编号</th>-->
-                       <!-- <th>操作2</th>-->
+
+                        <th>订单编号</th>
+                        <th>商家店铺名</th>
+                        <th>价格</th>
+                        <th>商家电话</th>
+                        <th>维修内容</th>
+                        <th>用户名</th>
+                        <th>用户电话</th>
+                        <th>用户地址</th>
+                        <th>订单状态</th>
+                   <!--     <th>操作</th>-->
+                    </tr>
+
                     </thead>
                     <tbody>
-                    <tr style="color:darkolivegreen">
-                        <td>1</td>
-                        <td>iphone6</td>
-                        <td>4820</td>
-                        <td>正在ing</td>
-                        <td>20180102</td>
-                        <!--<td>331641551515</td>-->
-                     <!--   <td><a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat">
-                            <font style="vertical-align: inherit;"><i
-                                    class="glyphicon glyphicon-pencil"></i>&nbsp;修改</font></a>
-                        </td>
-                        <td><a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat">
-                            <font style="vertical-align: inherit;"><i
-                                    class="glyphicon glyphicon-trash"></i>&nbsp;退单</font></a>
-                        </td>-->
-                    </tr>
-                   <!-- <tr>
-                        <td>2</td>
-                        <td>Need for Speed IV</td>
-                        <td>247-925-726</td>
-                        <td>Wes Anderson umami biodiesel</td>
-                        <td>$50.00</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Monsters DVD</td>
-                        <td>735-845-642</td>
-                        <td>Terry Richardson helvetica tousled street art master</td>
-                        <td>$10.70</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Grown Ups Blue Ray</td>
-                        <td>422-568-642</td>
-                        <td>Tousled lomo letterpress</td>
-                        <td>$25.99</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Grown Ups Blue Ray</td>
-                        <td>422-568-642</td>
-                        <td>Tousled lomo letterpress</td>
-                        <td>$25.99</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>Grown Ups Blue Ray</td>
-                        <td>422-568-642</td>
-                        <td>Tousled lomo letterpress</td>
-                        <td>$25.99</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>Grown Ups Blue Ray</td>
-                        <td>422-568-642</td>
-                        <td>Tousled lomo letterpress</td>
-                        <td>$25.99</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>Grown Ups Blue Ray</td>
-                        <td>422-568-642</td>
-                        <td>Tousled lomo letterpress</td>
-                        <td>$25.99</td>
-                    </tr>-->
+                    <volist name="datas" id="data">
+                        <tr style="color:darkolivegreen">
+                            <td>{$data['id']}</td>
+                            <td>{$data['name']}</td>
+                            <td>{$data['price']}</td>
+                            <td>{$data['businessphone']}</td>
+                            <td>易修</td>
+                            <td>{$data['username']}</td>
+                            <td>{$data['userphone']}</td>
+                            <td>{$data['address']}</td>
+                            <td>
+                                <if condition="$data.status eq 0"><span class="label label-warning">待用户确认</span></if>
+                                <if condition="$data.status eq 1"><span class="label label-primary">待用户支付</span></if>
+                                <if condition="$data.status eq 2"><span class="label label-warning">待商家确认</span></if>
+                                <if condition="$data.status eq 3"><span class="label label-warning">待商家维修</span></if>
+                                <if condition="$data.status eq 4"><span class="label label-warning">待用户确认</span></if>
+                                <if condition="$data.status eq 5"><span class="label label-success">订单完成</span></if>
+
+
+                            </td>
+
+
+                        </tr>
+                    </volist>
+
                     </tbody>
                 </table>
 
@@ -182,4 +161,4 @@
     </div>
     <!-- /.container -->
 </div>
-<!-- /.content-wrapper -->
+

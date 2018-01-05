@@ -1,0 +1,99 @@
+<link rel="stylesheet" href="__COMPONENTS__/wangEditor/css/wangEditor.min.css">
+<script src="__COMPONENTS__/jquery/dist/jquery.min.js"></script>
+<script src="__COMPONENTS__/wangEditor/js/wangEditor.min.js"></script>
+<!--//ajax保存-->
+<script src="__ADMINLTE__/js/save.js"></script>
+<div class="content-wrapper">
+    <div class="container">
+        <div class="content-wrapper">
+            <div class="container">
+                <section class="content-header" style="margin-top: 50px;">
+                    <h1>
+                        订单评价
+
+                    </h1>
+                </section>
+
+                <!-- Main content -->
+                <section class="content container-fluid">
+                    <div class="box box-primary">
+                        <!-- form start -->
+                        <form role="form">
+                            <input type="hidden" name="id" value="{$data.id}">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="name">店铺名称</label>
+                                    <input type="text" class="form-control" id="name" name="name" value="{$data.name}" readonly="readonly">
+                                </div>
+                                <div class="form-group">
+                                    <label for="score">店铺评分</label>
+                                    <input type="number" class="form-control" id="score" name="score"
+                                           value="{$data.score}" >
+                                </div>
+                                <div class="form-group">
+                                    <label for="orders">店铺单数</label>
+                                    <input type="number" class="form-control" id="orders" name="orders"
+                                           value="{$data.orders}" readonly="readonly">
+                                </div>
+
+                               <!-- <div class="form-group" style="width: 200px">
+                                    <label><font style="vertical-align: inherit;">店铺类型</font></label>
+                                    <select class="form-control" name="tid">
+                                        <volist name="t" id="vo">
+                                            <option
+                                            <if condition="$n[tid] eq $vo[id]">selected="selected"</if>
+                                            value="{$vo.id}">{$vo.name}</option>
+                                        </volist>
+                                    </select>
+                                </div>-->
+
+                               <!-- <div class="form-group">
+                                    <label>服务类型</label><br>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="way" value="0"
+                                        <if condition="$n['way'] eq 0">checked</if>
+                                        >到店服务
+                                    </label>
+                                    <lable class="radio-inline">
+                                        <input type="radio" name="way" value="1"
+                                        <if condition="$n['way'] eq 1">checked</if>
+                                        >上门服务
+                                    </lable>
+                                    <lable class="radio-inline">
+                                        <input type="radio" name="way" value="2"
+                                        <if condition="$n['way'] eq 2">checked</if>
+                                        >到店服务+上门服务
+                                    </lable>
+                                </div>-->
+
+                                <div class="form-group">
+                                    <label for="textarea">店铺评价</label>
+                                    <textarea id="textarea" style="height:400px;width: 100%;"  name="judge" >
+                                      <!--  {$data.judge}-->
+                                    </textarea>
+                                </div>
+
+
+                            <div class="box-footer">
+                                <a onclick="save('{:U('User/OrderJudge/saves')}')" class="btn btn-primary">保存</a>
+
+                                </a>
+
+
+
+                            </div>
+                        </form>
+                        <!-- /.box-body -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<script src="__BUSINESS__/js/ajax.js"></script>-->
+
+<script type="text/javascript">
+var editor = new wangEditor('textarea');
+//editor.config.uploadImgUrl = "{:U('Business/StoreManage/doUploadPic')}";
+editor.create();
+</script>

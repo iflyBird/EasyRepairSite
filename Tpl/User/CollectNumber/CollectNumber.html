@@ -1,10 +1,12 @@
+<script src="__ADMINLTE__/js/save.js"></script>
 <div class="content-wrapper">
     <div class="container">
         <div class="box" style="margin-top: 40px">
             <div class="box-header">
-                <h3 class="box-title" style="text-align: center">
+                <h3 class="box-title" style="text-align: center" >
                     <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户订单管理</font></font>
                 </h3>
+                <!-- <button id="collect">ta1</button>-->
             </div>
             <!-- /.box-header -->
             <!--   内容顶部图标显示-->
@@ -98,29 +100,26 @@
                     <thead>
                     <tr>
 
-                        <th>订单编号</th>
-                        <th>商家店铺名</th>
-                        <th>价格</th>
-                        <th>商家电话</th>
-                        <th>维修内容</th>
-                        <th>用户名</th>
-                        <th>用户电话</th>
-                        <th>用户地址</th>
-                        <th>订单状态</th>
-                        <th>操作</th>
+                        <th>店铺Id</th>
+                        <th>店铺名称</th>
+                        <th>店铺评分</th>
+                        <th>店铺销量</th>
+                        <th>店铺简介</th>
+                        <th >店铺状态</th>
+                        <th>收藏状态</th>
+
+
                     </tr>
+
                     </thead>
                     <tbody>
                     <volist name="datas" id="data">
                         <tr style="color:darkolivegreen">
                             <td>{$data['id']}</td>
                             <td>{$data['name']}</td>
-                            <td>{$data['price']}</td>
-                            <td>{$data['businessphone']}</td>
-                            <td>易修</td>
-                            <td>{$data['username']}</td>
-                            <td>{$data['userphone']}</td>
-                            <td>{$data['address']}</td>
+                            <td>{$data['score']}</td>
+                            <td>{$data['orders']}</td>
+                            <td>{$data['detail']}</td>
                             <td>
                                 <if condition="$data.status eq 0"><span class="label label-warning">待用户确认</span></if>
                                 <if condition="$data.status eq 1"><span class="label label-warning">待用户支付</span></if>
@@ -129,10 +128,11 @@
                                 <if condition="$data.status eq 4"><span class="label label-warning">待用户确认</span></if>
                                 <if condition="$data.status eq 5"><span class="label label-success">订单完成</span></if>
                             </td>
-                            <td><a href="{:U('EnsureOrder/ensureButton',array('id'=>$data['id']))}" class="btn btn-sm btn-info btn-flat">
-                                <font style="vertical-align: inherit;"><i
-                                        class="glyphicon glyphicon-pencil"></i>&nbsp;确认</font></a>
+                            <td>
+                                <if condition="$data.collect eq 1"><span class="label label-success">已收藏</span></if>
+                                <if condition="$data.collect eq 0"><span class="label label-warning">待收藏</span></if>
                             </td>
+
 
 
                         </tr>
@@ -149,4 +149,5 @@
     </div>
 
 </div>
+
 

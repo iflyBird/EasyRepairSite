@@ -72,6 +72,7 @@
             data: $('form').serializeArray(),
             dataType: 'json',
             success: function (response) {
+                //alert(response);
                 layer.msg(response.message, {
                     icon: response.code,
                     time: 600
